@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Table } from "./Table";
+import { Table } from "./components/Table";
 
 const OPENAI_URL = 'https://api.openai.com/v1/'
 
@@ -20,21 +20,23 @@ function App() {
   async function getFineTuningJobs() {
     var response = await fetch('https://api.openai.com/v1/fine_tuning/jobs', {
       headers: {
-        'Authorization': 'Bearer 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',
+        'Authorization': 'Bearer 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',
       }
     });
     var jobsResponse = await response.json();
-    return jobsResponse['data'];
+    var jobs = jobsResponse['data'];
+    return jobs;
   }
 
   async function getModels() {
     var response = await fetch('https://api.openai.com/v1/models', {
       headers: {
-        'Authorization': 'Bearer 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',
+        'Authorization': 'Bearer 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',
       }
     });
-    var jsonResponse = await response.json();
-    return jsonResponse['data'];
+    var modelsResponse = await response.json();
+    var models = modelsResponse['data'];
+    return models.reverse();
   }
 
   return (
