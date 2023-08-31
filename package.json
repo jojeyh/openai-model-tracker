@@ -1,5 +1,5 @@
 {
-  "name": "model-tracker",
+  "name": "openai-model-tracker",
   "private": true,
   "version": "0.0.0",
   "type": "module",
